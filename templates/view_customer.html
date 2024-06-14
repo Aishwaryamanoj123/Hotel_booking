@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+<u><h1 style="padding-top: 50px; padding-left: 350px;">Customer Details</h1></u>
+<div style="padding-top: 30px;">
+
+<table class="table  table-hover table-striped table-bordered table-dark"  >
+    <thead>
+        <tr>
+            <th scope="col">Customer ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Adhar Number</th>
+            <th scope="col">Address</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+            <th scopoe="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for i in customer %}
+                <tr>
+                    <td>{{ i.cid}}</td>
+                    <td>{{ i.fname }}</td>
+                    <td>{{ i.lname }}</td>
+                    <td>{{i.age}}</td>
+                    <td>{{ i.adhar }}</td>
+                    <td>{{ i.address }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.phnno }}</td>
+                    <td>
+                        <a href="{% url 'delete_customer' i.cid %}" class="btn btn-danger"></a>
+                    </td>
+                    </tr>
+                    {% endfor %}
+            </tbody>
+</table>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+

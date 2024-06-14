@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="w3-content" style="max-width:1532px;">
+
+  <div class="w3-container w3-margin-top" >
+    <h1 style="padding-left: 150px;">Rooms</h1>
+    <p><h4> Make yourself at home is our slogan. We offer the best beds in the industry. Sleep well and rest well.</h4></p>
+  </div>
+  
+   <br><br>
+  <div id="d1" style="padding-left: 150px;">
+  {% for i in room %}
+    <div class="w3-row-padding w3-padding-16">
+      <div class="w3-third w3-margin-bottom">
+        <img src="/{{i.image}}" alt="Norway" width="400px" height="300px">
+        <div class="w3-container w3-white" id="d2">
+          <h3>{{i.roomtype}} Room</h3>
+          <p>{{i.des}}</p>
+          <p>Bed Type:{{i.bedtype}}</p>
+          <h6 class="w3-opacity">{{i.rate}}</h6>
+          {% if i.ac %}
+           <h6>AC</h6>
+          {% else %}
+           <h6>Non AC</h6>
+          {% endif %}
+          <p class="w3-large"><i class="fa fa-bath"></i> <i class="fa fa-phone"></i> <i class="fa fa-wifi"></i></p>
+          <a href="{% url 'book' i.id %}"><button class="w3-button w3-block w3-black w3-margin-bottom btn btn-primary btn-lg active ">BOOK NOW</button></a>
+          
+        </div>
+      </div>
+    </div>
+   <br><br>
+  {% endfor %}
+    
+
+{% endblock content %}

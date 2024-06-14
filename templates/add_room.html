@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 style="padding-left: 400px; padding-top: 50px; padding-bottom: 50px;">Add Room</h1>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+<section class="vh-100">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-xl-9">
+        <div class="card" style="border-radius: 15px; box-shadow: 0 0 20px rgba(0,0,0,0.1);">
+          <div class="card-body">
+            <div class="row align-items-center pt-4 pb-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Room No</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <input type="number" placeholder="Enter room no" name="roomno" id="roomno" required class="form-control form-control-lg" style="border-radius: 5px;">
+              </div>
+            </div>
+            <hr class="mx-n3">
+            <div class="row align-items-center pt-4 pb-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Room Description</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <textarea class="form-control" rows="3" placeholder="Enter description" name="des" id="des" style="border-radius: 5px;"></textarea>
+              </div>
+            </div>
+            <hr class="mx-n3">
+            <div class="row align-items-center pt-4 pb-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">AC Status</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="ac" id="ac1" value="True">
+                  <label class="form-check-label" for="ac1">AC</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="ac" id="ac2" value="False">
+                  <label class="form-check-label" for="ac2">Non-AC</label>
+                </div>
+              </div>
+            </div>
+            <hr class="mx-n3">
+            <div class="row align-items-center pt-4 pb-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Room Type</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <select id="type" name="type" class="form-select form-control-lg" style="border-radius: 5px;">
+                  <option value="single">Single Room</option>
+                  <option value="double">Double Room</option>
+                  <option value="triple">Triple Room</option>
+                  <option value="deluxe">Deluxe Room</option>
+                </select>
+              </div>
+            </div>
+            <hr class="mx-n3">
+            <div class="row align-items-center pt-4 pb-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Bed Type</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <select id="bed" name="bed" class="form-select form-control-lg" style="border-radius: 5px;">
+                  <option value="single">Single Bed</option>
+                  <option value="queen">Queen-size Bed</option>
+                  <option value="king">King-size Bed</option>
+                </select>
+              </div>
+            </div>
+            <hr class="mx-n3">
+            <div class="row align-items-center pt-4 pb-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Rate</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <input type="number" placeholder="Rate" name="rate" id="rate" required class="form-control form-control-lg" style="border-radius: 5px;">
+              </div>
+            </div>
+            <hr class="mx-n3">
+            <div class="row align-items-center py-3">
+              <div class="col-md-3 ps-5">
+                <h6 class="mb-0">Image</h6>
+              </div>
+              <div class="col-md-9 pe-5">
+                <input type="file" id="img" name="img" aria-describedby="inputGroupFileAddon01" class="form-control form-control-lg" style="border-radius: 5px;">
+              </div>
+            </div>
+            <hr class="mx-n3">
+            <div class="px-5 py-4">
+              <button type="submit" class="btn btn-primary btn-lg" style="border-radius: 5px;">Add Room</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</form>
+<br><br><br><br><br><br><br><br><br><br>
+
+{% endblock %}

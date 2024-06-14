@@ -1,0 +1,47 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+<body >
+<div class="wrapper" >
+    <h2 style="padding-left: 30px; padding-top: 30px; padding-bottom: 30px;">Book Room</h2>
+    <div class="w3ls-form">
+        <form  method="post">
+            {% csrf_token %}
+        <b><label>Check In</label></b>
+        <input type="date" name="checkin"  required><br><br>
+        <b><label>Check Out</label></b>
+        <input type="date" name="checkout"  required><br><br>
+        <button>check availability</button>
+        
+        </form>
+        
+        
+        {% if msg %}
+        <hr>
+        <h3>{{msg}}</h3>
+        
+        {% if total %}
+            <h2>Total Amount : {{ total }}/-</h2>
+
+            
+    <form action="{% url 'save_booking' %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="amount" value="{{total}}">
+        <input type="hidden" name="chckin" value="{{checkin}}">
+        <input type="hidden" name="chckout" value="{{checkout}}">
+        <input type="hidden" name="roomid" value="{{room.id}}"> <!-- Use room.id here -->
+    
+        <button>book</button>
+    </form>
+       
+        {% endif %}    
+        {% endif %} 
+       
+       
+    </div>
+</div>
+</div>
+</body>
+{% endblock content %}

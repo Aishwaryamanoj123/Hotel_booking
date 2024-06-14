@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<u><h1 style="padding-top: 50px; padding-left: 350px;">Room Details</h1></u>
+<div style="padding-top: 30px;">
+
+<table class="table  table-hover table-striped table-bordered table-dark"  >
+    <thead>
+        <tr class="table-active">
+            <th>Room ID</th>
+            <th>Room No</th>
+            <th>Description</th>
+            <th>AC Status</th>
+            <th>Room Type</th>
+            <th>Bed Type</th>
+            <th>rate</th>
+            <th>Image</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for i in room %}
+    <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.rno}}</td>
+        <td>{{ i.des }}</td>
+
+        <td>{% if i.ac %}
+        AC
+        {% else %}
+        Non-AC
+        {% endif %}</td>
+
+       
+        <td>{{ i.roomtype}}</td>
+        <td>{{ i.bedtype }}</td>
+        <td>{{ i.rate }}</td>
+        <td>{{ i.image }}</td>
+        <td>{% if i.ac %} Available {% else %} Not Available {% endif %}</td>
+        <td><a href="{% url 'update_room' i.id %}" class="btn">Update</a>
+            <a href="{% url 'delete_room' id=i.id %}" class="btn">Delete</a>
+            </td>
+    </tr>
+    {% endfor %}
+</tbody>
+
+</table>
+</div>
+{% endblock %}
+
+
+
+
+
+           
+
+
+     
+
+
+
+
+            
+
+
+

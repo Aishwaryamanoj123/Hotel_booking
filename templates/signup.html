@@ -1,0 +1,122 @@
+<!-- signup.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    /* Custom styles for the form */
+    .form-container {
+        max-width: 500px;
+        margin: auto;
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .form-container h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        font-weight: bold;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"],
+    .form-group input[type="number"],
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .form-group textarea {
+        resize: none;
+    }
+
+    .btn-register {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: orange;
+        color: white;
+        cursor: pointer;
+    }
+
+    .btn-register:hover {
+        background-color: green;
+    }
+
+    .pass {
+        color: blue;
+    }
+</style>
+
+<div class="form-container">
+    <h1>SIGNUP</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="fname"><b>First name:</b></label>
+            <input type="text" placeholder="Enter firstname" name="fname" id="fname" required>
+        </div>
+
+        <div class="form-group">
+            <label for="lname"><b>Last name:</b></label>
+            <input type="text" placeholder="Enter lastname" name="lname" id="lname" required>
+        </div>
+
+        <div class="form-group">
+            <label for="age"><b>Age:</b></label>
+            <input type="number" name="age" placeholder="Enter age">
+        </div>
+
+        <div class="form-group">
+            <label for="address"><b>Address:</b></label>
+            <textarea name="address" id="address" cols="30" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="adhar"><b>Adhar No:</b></label>
+            <input type="text" name="adhar" placeholder="adhar" required maxlength="12">
+        </div>
+
+        <div class="form-group">
+            <label for="email"><b>Email Id:</b></label>
+            <input type="email" name="email" placeholder="Email" required>
+        </div>
+
+        <div class="form-group">
+            <label for="mobileno"><b>Mobile No:</b></label>
+            <input type="number" name="mobileno" placeholder="Mobile Number" required maxlength="10">
+        </div>
+
+        <div class="form-group">
+            <label for="uname"><b>Username:</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+        </div>
+
+        <div class="form-group">
+            <label for="pswd"><b>Password:</b></label>
+            <input type="password" name="pswd" placeholder="Enter Password" required>
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-register">Register</button>
+            <a href="{% url 'login' %}" class="pass">Already have an account? Login</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+<!-- signup.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group" style="color: rgb(6, 53, 60); ">
+         <h1 style="padding-left: 300px; padding-top: 20px; padding-bottom: 20px;">UPDATE DETAILS</h1><br>
+      
+          <label><b> First name:</b></label>
+          <input type="text" placeholder="Enter firstname" name="fname" id="fname" required value="{{i.fname}}">
+    
+      
+          <label><b> Last name: </b></label>
+          <input type="text"  placeholder="Enter lastname" name="lname" id="lname" required value="{{i.lname}}"><br><br>
+
+          <label><b> age:</b></label>
+          <input type="number"  name="age" placeholder="Enter age" value="{{i.age}}" >
+  
+          <label><b> Address:  </b></label>
+          <textarea name="address" id="address" cols="30" rows="3" >{{i.address}}</textarea><br><br>
+  
+          <label><b> Adhar No: </b></label>
+          <input type="text" name="adhar" placeholder="adhar" required maxlength="12" value="{{i.adhar}}">
+  
+          
+  
+          <label><b> Email Id:</b></label>
+          <input type="email" name="email" placeholder="Email" required value="{{i.email}}" ><br><br>
+  
+          <label><b> Mobile No:</b></label>
+          <input type="number" name="mobileno" placeholder="Mobile Number" required maxlength="10" value="{{i.phnno}}"><br><br>
+
+    
+        
+          
+          </div>
+          <div  style="padding-left:300px">
+            <button type="submit" class="btn btn-primary btn-lg">update</button>
+            
+
+    </form>
+      
+
+ {% endblock %}
